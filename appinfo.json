@@ -1,5 +1,8 @@
 {
-    "appKeys": {},
+    "appKeys": {
+        "id": 0,
+        "request": 1
+    },
     "capabilities": [
         ""
     ],
@@ -9,23 +12,8 @@
     "resources": {
         "media": [
             {
-                "file": "images/menu_icon_sector_watch.png",
-                "name": "IMAGE_MENU_ICON_SECTOR_WATCH",
-                "type": "png"
-            },
-            {
-                "file": "images/menu_icon_binary_watch.png",
-                "name": "IMAGE_MENU_ICON_BINARY_WATCH",
-                "type": "png"
-            },
-            {
-                "file": "images/menu_icon_big_watch.png",
-                "name": "IMAGE_MENU_ICON_BIG_WATCH",
-                "type": "png"
-            },
-            {
-                "file": "images/brains_watch_background.png",
-                "name": "IMAGE_BACKGROUND_BRAINS",
+                "file": "images/edibble_icon.png",
+                "name": "EDIBBLE_ICON",
                 "type": "png"
             }
         ]
