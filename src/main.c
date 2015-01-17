@@ -5,6 +5,7 @@
 static Window *main_window;
 static Window *confirm_window;
 static MenuLayer *menu_layer;
+static TextLayer *confirm_layer;
 
 static uint16_t menu_get_num_sections_callback(MenuLayer *menu_layer, void *data) {
   return NUM_MENU_SECTIONS;
@@ -78,11 +79,16 @@ static void main_window_unload(Window *window) {
 }
 
 static void confirm_window_load(Window *window) {
-  
+ Layer *window_layer = window_get_root_layer(window);
+  GRect bounds = layer_get_bounds(window_layer);
+  confirm_layer = text_layer_create((GRect) { .origin = { 0, 72 }, .size = { bounds.size.w, 20 } });
+  text_layer_set_text(confirm_layer, "Request Confirmed!");
+  text_layer_set_text_alignment(confirm_layer, GTextAlignmentCenter);
+  layer_add_child(window_layer, text_layer_get_layer(confirm_layer));
 }
 
 static void confirm_window_unload(Window *window) {
-  
+  text_layer_destroy(confirm_layer);
 }
 
 
