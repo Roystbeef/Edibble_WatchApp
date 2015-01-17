@@ -13,6 +13,7 @@
         "media": [
             {
                 "file": "images/edibble_icon.png",
+                "menuIcon": true,
                 "name": "EDIBBLE_ICON",
                 "type": "png"
             }
