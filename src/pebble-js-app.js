@@ -92,7 +92,3 @@ var reqHelp = function() {
 var req = function(xhr) {
   
 };
-
-Pebble.addEventListener('showConfiguration', function(e) {
-  Pebble.openURL('http://google.com');
-});
