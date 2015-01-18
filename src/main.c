@@ -50,6 +50,7 @@ static void out_failed_handler(DictionaryIterator *failed, AppMessageResult reas
 
 static void select_clicked(ClickRecognizerRef recognizer, void* context) {
   send_message(0x0);
+  //window_stack_push(main_window, true);
 }
 
 static void click_config_provider(void* context) {
