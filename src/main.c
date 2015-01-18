@@ -94,18 +94,21 @@ void menu_select_callback(MenuLayer *menu_layer, MenuIndex *cell_index, void *da
   switch(cell_index->row) {
     case 0:
       send_message(0x01);
+      window_stack_push(confirm_window, true);
       break;
     case 1:
       send_message(0x02);
+      window_stack_push(confirm_window, true);
       break;
     case 2:
       send_message(0x03);
+      window_stack_pop(true);
       break;
     case 3:
+      window_stack_push(confirm_window, true);
       send_message(0x04);
       break;
   }
-  window_stack_push(confirm_window, true);
 }
 
 static void main_window_load(Window *window) {
