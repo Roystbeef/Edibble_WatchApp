@@ -4,13 +4,23 @@
         "request": 1
     },
     "capabilities": [
-        ""
+        "configurable"
     ],
     "companyName": "royfu@purdue.edu",
     "longName": "Edibble",
     "projectType": "native",
     "resources": {
         "media": [
+            {
+                "file": "images/request.png",
+                "name": "CONFIRM_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "file": "images/Connect.png",
+                "name": "CONNECT_BACKGROUND",
+                "type": "png"
+            },
             {
                 "file": "images/edibble_icon.png",
                 "menuIcon": true,

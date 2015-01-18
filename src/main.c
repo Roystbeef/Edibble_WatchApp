@@ -10,9 +10,11 @@ enum {
 static Window *connect_window;  
 static Window *main_window;
 static Window *confirm_window;
-static TextLayer *connect_layer;
+static BitmapLayer *connect_layer;
+static GBitmap *connect_bitmap;
 static MenuLayer *menu_layer;
-static TextLayer *confirm_layer;
+static BitmapLayer *confirm_layer;
+static GBitmap *confirm_bitmap;
 
 static int idNum;
 
@@ -133,29 +135,27 @@ static void main_window_unload(Window *window) {
 }
 
 static void connect_window_load(Window *window) {
- Layer *window_layer = window_get_root_layer(window);
-  GRect bounds = layer_get_bounds(window_layer);
-  connect_layer = text_layer_create((GRect) { .origin = { 0, 65 }, .size = { bounds.size.w, 40 } });
-  text_layer_set_text(connect_layer, "Press Select to\nConnect When Seated");
-  text_layer_set_text_alignment(connect_layer, GTextAlignmentCenter);
-  layer_add_child(window_layer, text_layer_get_layer(connect_layer));
+  connect_bitmap = gbitmap_create_with_resource(RESOURCE_ID_CONNECT_BACKGROUND);
+  connect_layer = bitmap_layer_create(GRect(0, 0, 144, 152));
+  bitmap_layer_set_bitmap(connect_layer, connect_bitmap);
+  layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(connect_layer));
 }
 
 static void connect_window_unload(Window *window) {
-  text_layer_destroy(connect_layer);
+  gbitmap_destroy(connect_bitmap);
+  bitmap_layer_destroy(connect_layer);
 }
 
 static void confirm_window_load(Window *window) {
- Layer *window_layer = window_get_root_layer(window);
-  GRect bounds = layer_get_bounds(window_layer);
-  confirm_layer = text_layer_create((GRect) { .origin = { 0, 72 }, .size = { bounds.size.w, 20 } });
-  text_layer_set_text(confirm_layer, "Request Confirmed!");
-  text_layer_set_text_alignment(confirm_layer, GTextAlignmentCenter);
-  layer_add_child(window_layer, text_layer_get_layer(confirm_layer));
+  confirm_bitmap = gbitmap_create_with_resource(RESOURCE_ID_CONFIRM_BACKGROUND);
+  confirm_layer = bitmap_layer_create(GRect(0, 0, 144, 152));
+  bitmap_layer_set_bitmap(confirm_layer, confirm_bitmap);
+  layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(confirm_layer));
 }
 
 static void confirm_window_unload(Window *window) {
-  text_layer_destroy(confirm_layer);
+  gbitmap_destroy(confirm_bitmap);
+  bitmap_layer_destroy(confirm_layer);
 }
 
 

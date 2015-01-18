@@ -60,7 +60,7 @@ var reqRefill = function() {
   var request = new XMLHttpRequest();
   console.log("requested");
   request.open('GET',
-               'http://192.168.42.1:3000/requestRefill/:' + id,
+               'http://192.168.42.1:3000/requestRefill/' + id,
               true);
   request.onload = req;
   request.send();
@@ -92,3 +92,7 @@ var reqHelp = function() {
 var req = function(xhr) {
   
 };
+
+Pebble.addEventListener('showConfiguration', function(e) {
+  Pebble.openURL('http://google.com');
+});
